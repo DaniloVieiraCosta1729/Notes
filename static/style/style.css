@@ -1,0 +1,51 @@
+html, body {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    display: grid;
+    grid-template-areas: "menu content";
+    grid-template-columns: 1fr 5fr;
+}
+
+.menu-notes-container {
+    grid-area: menu;
+    min-height: 100vh;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    transition: 500ms;
+}
+
+.menu-notes {
+    list-style: none;
+    font-size: large;
+}
+
+.note-content {
+    grid-area: content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #E0D3AF;
+}
+
+.text {
+    font-family: "Send Flowers", cursive;
+}
+
+.note {
+    transition: 500ms ease-out;
+}
+
+.note a {
+    text-decoration: none;
+    padding: 0.2rem;
+    color: antiquewhite;
+}
+
+.note:hover {
+    box-shadow: 0 0.2rem 0 0 rgb(35, 50, 220);
+}
