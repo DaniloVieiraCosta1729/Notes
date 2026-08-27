@@ -33,17 +33,20 @@ body {
 }
 
 .text {
-    font-family: "Send Flowers", cursive;
+    font-family: "Caveat", cursive;
+    font-size: larger;
+    padding-left: 1rem;
 }
 
 .note {
     transition: 500ms ease-out;
 }
 
-.note a {
-    text-decoration: none;
+.note button {
+    background-color: rgba(250, 235, 215, 0);
     padding: 0.2rem;
     color: antiquewhite;
+    border-style: none;
 }
 
 .note:hover {
