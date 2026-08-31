@@ -28,29 +28,31 @@
     <aside class="menu-notes-container">
         <h2>Matérias</h2>
         <ul class="menu-notes">
-            <li class="note"><button type="button">Física</button></li>
-            <li class="note"><button type="button">Matemática</button></li>
+            <li class="note"><button type="button" onclick="openNote('fisica3.html')">Eletromag Física 3</button></li>
+            <li class="note"><button type="button" onclick="openNote('geometriaAnalitica.html')">Geometria Analítica</button></li>
         </ul>
     </aside>
-    <section class="note-content">
-        <h1>Eletromagnetismo Básico Física 3</h1>
-        <main class="text">
-            <h2>Pensamentos sobre a introdução do livro de Física 3 de Moysés</h2>
-            <p>
-                Moysés apresenta a influência da teoria elétrica, magnética e eletromagnética ao longo da história e cita seu estágio final como sendo a eletrodinâmica quântica. Eu não lembrava dessa parte sobre a eletrodinâmica quântica e algo que ele falou me surpreendeu: a eletrodinâmica quântica é usada hoje como modelo para tratar as outras interações! i.e.: nuclear forte, fraca e gravitacional
-            </p>
-            <h2>Lei de Coulomb</h2>
-            <p>Vamos começar testando essa página de notas com a lei de Coulomb.</p>
-            <p>
-                $$F_{2(1)}= \frac{1}{4\pi\epsilon_0}\frac{q_1q_2}{r_{12}^{2}}\hat{r}$$
-            </p>
-        </main>
+    <section id="note-content" class="note-content">
+        
     </section>
 
-    <script>
-
-    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+        async function openNote(name){
+            const content = await fetch(`/static/notes/${name}`);
+
+            document.getElementById('note-content').innerHTML = await content.text();
+
+            renderMathInElement(document.body,{
+                delimiters:[
+                    {left:'$$',right:'$$',display:true},
+                    {left:'$',right:'$',display:false},
+                    {left:'\(',right:'\)',display:false},
+                    {left:'\[',right:'\]',display:true}
+                ]
+            });
+        }
+    </script>
 </body>
 </html>
