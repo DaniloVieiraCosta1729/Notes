@@ -27,13 +27,27 @@
 
     <aside class="menu-notes-container">
         <h2>Matérias</h2>
-        <ul class="menu-notes">
+        <ul class="menu-notes" id="menu-notes">
             <li class="note"><button type="button" onclick="openNote('fisica3.html')">Eletromag Física 3</button></li>
             <li class="note"><button type="button" onclick="openNote('geometriaAnalitica.html')">Geometria Analítica</button></li>
             <li class="note"><button type="button" onclick="openNote('finite_vector_spaces.html')">Finite Vector Spaces</button></li>
+            <li class="note"><button type="button" onclick="openNote('zundamon01.html')">日本語</button></li>
         </ul>
     </aside>
     <section id="note-content" class="note-content">
+
+        <div class="introduction-message">
+            <div class="introduction-message-content">
+                <h1>Bem-vindo à sua biblioteca de cadernos</h1>
+                <h2>Escolha um caderno abaixo e comece a anotar</h2>
+                <div id="introduction-menu-notes">
+                </div>
+                <script>
+                    const listIntro = document.getElementById("introduction-menu-notes");
+                    listIntro.innerHTML = document.getElementById("menu-notes").innerHTML;
+                </script>
+            </div>
+        </div>
         
     </section>
 
@@ -56,6 +70,14 @@
         }
 
         async function saveText() {
+            renderMathInElement(document.body,{
+                delimiters:[
+                    {left:'$$',right:'$$',display:true},
+                    {left:'$',right:'$',display:false},
+                    {left:'\(',right:'\)',display:false},
+                    {left:'\[',right:'\]',display:true}
+                ]
+            });
             const text = document.getElementById("note-content").innerHTML;
             const response = await fetch(
                 "/save", 
