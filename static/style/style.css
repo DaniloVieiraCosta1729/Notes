@@ -37,7 +37,7 @@ body {
 }
 
 .text {
-    font-family: "Caveat", cursive;
+    font-family: "Comic Relief", system-ui;
     font-size: 1.7rem;
     padding: 0 5rem; /*2 args = top-bottom rigth-left; 3 args = forgot top rigth bottom, maybe; 4 arg, clockwise starting with top*/
 }
@@ -55,4 +55,24 @@ body {
 
 .note:hover {
     box-shadow: 0 0.2rem 0 0 rgb(35, 50, 220);
+}
+
+#save-btn {
+    border-style: none;
+    width: 4rem;
+    height: 2rem;
+    background-color: beige;
+    color: grey;
+    transition: 500ms;
+}
+
+#save-btn:hover {
+    background-color: rgb(130, 227, 130);
+    box-shadow: 1px 1px 1px 1px  rgba(130, 227, 130, 0.364);
+    color: black;
+}
+.save {
+    display: flex;
+    justify-content: left;
+    width: 100%;
 }

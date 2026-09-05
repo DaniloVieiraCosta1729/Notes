@@ -30,6 +30,7 @@
         <ul class="menu-notes">
             <li class="note"><button type="button" onclick="openNote('fisica3.html')">Eletromag Física 3</button></li>
             <li class="note"><button type="button" onclick="openNote('geometriaAnalitica.html')">Geometria Analítica</button></li>
+            <li class="note"><button type="button" onclick="openNote('finite_vector_spaces.html')">Finite Vector Spaces</button></li>
         </ul>
     </aside>
     <section id="note-content" class="note-content">
@@ -52,6 +53,18 @@
                     {left:'\[',right:'\]',display:true}
                 ]
             });
+        }
+
+        async function saveText() {
+            const text = document.getElementById("note-content").innerHTML;
+            const response = await fetch(
+                "/save", 
+                {
+                    method: "POST",
+                    headers: {"Content-Type": "text/html"},
+                    body: text
+                }
+            );
         }
     </script>
 </body>
